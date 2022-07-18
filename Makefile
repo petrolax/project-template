@@ -1,2 +1,3 @@
 all:
-	go run cmd/migration/main.go -config ./config/config.env 
+	go run cmd/migrator/main.go
+	go run cmd/plants/main.go

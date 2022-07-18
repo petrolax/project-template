@@ -9,8 +9,8 @@ import (
 	kithttp "github.com/go-kit/kit/transport/http"
 	kitlog "github.com/go-kit/log"
 	"github.com/gorilla/mux"
-	"gitlab.com/propetrov/project_example/pkg/api/public"
-	"gitlab.com/propetrov/project_example/pkg/plants"
+	"github.com/petrolax/project-template/pkg/api/public"
+	"github.com/petrolax/project-template/pkg/plants"
 	"go.uber.org/zap"
 )
 

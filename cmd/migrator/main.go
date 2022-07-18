@@ -6,8 +6,8 @@ import (
 	"github.com/carprice-tech/migorm"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/postgres"
-	"gitlab.com/propetrov/project_example/config"
-	_ "gitlab.com/propetrov/project_example/migrations"
+	"github.com/petrolax/project-template/config"
+	_ "github.com/petrolax/project-template/migrations"
 )
 
 func main() {

@@ -1,6 +1,6 @@
 syntax = "proto3";
 package go.public.plants;
-option go_package = "gitlab.com/propetrov/project_example/pkg/api/public;public";
+option go_package = "github.com/petrolax/project-template/pkg/api/public;public";
 
 service PlantsApi {
     rpc AddPlant(AddPlantRequest) returns (AddPlantResponse);
@@ -46,8 +46,6 @@ message DeletePlantRequest {
 }
 
 message DeletePlantResponse {}
-
-
 
 message Plant {
     uint32 id = 1;

@@ -4,7 +4,7 @@ import (
 	"context"
 
 	"github.com/jinzhu/gorm"
-	"gitlab.com/propetrov/project_example/pkg/plants/dao"
+	"github.com/petrolax/project-template/pkg/plants/dao"
 	"go.uber.org/zap"
 )
 

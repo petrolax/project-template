@@ -12,14 +12,15 @@ import (
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/postgres"
 	"github.com/oklog/oklog/pkg/group"
-	"gitlab.com/propetrov/project_example/config"
-	privateApi "gitlab.com/propetrov/project_example/pkg/api/private"
-	"gitlab.com/propetrov/project_example/pkg/plants"
-	"gitlab.com/propetrov/project_example/pkg/repository"
-	"gitlab.com/propetrov/project_example/pkg/transport/endpoints/private"
-	"gitlab.com/propetrov/project_example/pkg/transport/endpoints/public"
+	"github.com/petrolax/project-template/config"
+	privateApi "github.com/petrolax/project-template/pkg/api/private"
+	"github.com/petrolax/project-template/pkg/plants"
+	"github.com/petrolax/project-template/pkg/repository"
+	"github.com/petrolax/project-template/pkg/transport/endpoints/private"
+	"github.com/petrolax/project-template/pkg/transport/endpoints/public"
 	"go.uber.org/zap"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/reflection"
 )
 
 func main() {
@@ -52,7 +53,10 @@ func main() {
 		Addr:    cfg.HttpPort,
 		Handler: publicController.Endpoints(),
 	}
-	grpcListener, _ := net.Listen("tcp", cfg.GrpcPort)
+	grpcListener, err := net.Listen("tcp", cfg.GrpcPort)
+	if err != nil {
+		log.Fatalln("Can't listen grpc port")
+	}
 	grpcServer := grpc.NewServer()
 
 	// ctrl+c/ctrl+z and other terminate hotkeys, which kill proccess
@@ -79,6 +83,7 @@ func main() {
 			logger.Info("run http server", zap.String("transport", "http"), zap.String("port", cfg.HttpPort))
 			return server.ListenAndServe()
 		}, func(err error) {
+			logger.Error(err.Error())
 			server.Close()
 		},
 	)
@@ -88,8 +93,10 @@ func main() {
 		func() error {
 			logger.Info("run grpc server", zap.String("transport", "grpc"), zap.String("port", cfg.GrpcPort))
 			privateApi.RegisterPlantsApiServer(grpcServer, privateController)
+			reflection.Register(grpcServer) // for postman and other request utils
 			return grpcServer.Serve(grpcListener)
 		}, func(err error) {
+			logger.Error(err.Error())
 			grpcListener.Close()
 		},
 	)

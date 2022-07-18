@@ -5,10 +5,10 @@ import (
 	"errors"
 
 	"github.com/jinzhu/gorm"
-	"gitlab.com/propetrov/project_example/pkg/helpers"
-	"gitlab.com/propetrov/project_example/pkg/plants/dao"
-	"gitlab.com/propetrov/project_example/pkg/plants/dto"
-	"gitlab.com/propetrov/project_example/pkg/repository"
+	"github.com/petrolax/project-template/pkg/helpers"
+	"github.com/petrolax/project-template/pkg/plants/dao"
+	"github.com/petrolax/project-template/pkg/plants/dto"
+	"github.com/petrolax/project-template/pkg/repository"
 	"go.uber.org/zap"
 )
 

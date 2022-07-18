@@ -7,8 +7,8 @@ import (
 	"net/http"
 
 	"github.com/go-kit/kit/endpoint"
-	"gitlab.com/propetrov/project_example/pkg/api/public"
-	"gitlab.com/propetrov/project_example/pkg/helpers"
+	"github.com/petrolax/project-template/pkg/api/public"
+	"github.com/petrolax/project-template/pkg/helpers"
 	"go.uber.org/zap"
 )
 

@@ -3,7 +3,7 @@ package plants
 import (
 	"context"
 
-	"gitlab.com/propetrov/project_example/pkg/plants/dto"
+	"github.com/petrolax/project-template/pkg/plants/dto"
 )
 
 type Service interface {

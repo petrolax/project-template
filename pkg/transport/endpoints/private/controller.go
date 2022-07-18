@@ -4,8 +4,8 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
-	"gitlab.com/propetrov/project_example/pkg/api/private"
-	"gitlab.com/propetrov/project_example/pkg/plants"
+	"github.com/petrolax/project-template/pkg/api/private"
+	"github.com/petrolax/project-template/pkg/plants"
 	"go.uber.org/zap"
 )
 

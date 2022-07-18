@@ -3,7 +3,7 @@ package repository
 import (
 	"context"
 
-	"gitlab.com/propetrov/project_example/pkg/plants/dao"
+	"github.com/petrolax/project-template/pkg/plants/dao"
 )
 
 type Repository interface {
