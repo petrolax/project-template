@@ -1,0 +1,5 @@
+syntax = "proto3";
+package go.private.plants;
+option go_package = "gitlab.com/propetrov/project_example/pkg/api/private;private";
+
+service PlantsApi {}
