@@ -8,7 +8,7 @@ import (
 
 	"github.com/go-kit/kit/endpoint"
 	"github.com/petrolax/project-template/pkg/api/public"
-	"github.com/petrolax/project-template/pkg/helpers"
+	"github.com/petrolax/project-template/pkg/transport/helpers"
 	"go.uber.org/zap"
 )
 

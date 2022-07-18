@@ -1,8 +1,6 @@
 package helpers
 
 import (
-	"github.com/petrolax/project-template/pkg/api/private"
-	"github.com/petrolax/project-template/pkg/api/public"
 	"github.com/petrolax/project-template/pkg/plants/dao"
 	"github.com/petrolax/project-template/pkg/plants/dto"
 )
@@ -12,35 +10,6 @@ func ConvertSlicesDAOToDTO(src []*dao.Plant) []*dto.Plant {
 	for i := range src {
 		dst[i] = &dto.Plant{
 			ID:   src[i].ID,
-			Name: src[i].Name,
-		}
-	}
-	return dst
-}
-
-func ConvertDTOToPulbicPlant(src *dto.Plant) *public.Plant {
-	return &public.Plant{
-		Id:   uint32(src.ID),
-		Name: src.Name,
-	}
-}
-
-func ConvertSlicesDTOToPublicPlant(src []*dto.Plant) []*public.Plant {
-	dst := make([]*public.Plant, len(src))
-	for i := range src {
-		dst[i] = &public.Plant{
-			Id:   uint32(src[i].ID),
-			Name: src[i].Name,
-		}
-	}
-	return dst
-}
-
-func ConvertSlicesDTOToPrivatePlant(src []*dto.Plant) []*private.Plant {
-	dst := make([]*private.Plant, len(src))
-	for i := range src {
-		dst[i] = &private.Plant{
-			Id:   uint32(src[i].ID),
 			Name: src[i].Name,
 		}
 	}

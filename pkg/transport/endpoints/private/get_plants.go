@@ -4,7 +4,7 @@ import (
 	"context"
 
 	"github.com/petrolax/project-template/pkg/api/private"
-	"github.com/petrolax/project-template/pkg/helpers"
+	"github.com/petrolax/project-template/pkg/transport/helpers"
 )
 
 func (c *Controller) GetPlants(ctx context.Context, req *private.GetPlantsRequest) (*private.GetPlantsResponse, error) {
